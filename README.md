@@ -1,14 +1,37 @@
-# wispr-ai-mock-test
+# Gmail Voice Dictation
 
-## server.py: a flask backend, use a model for speech, and a model for punctuation, or SpaCy for Named Entity Recognition 
-## manifest.json for chrome extention 
-## background.js to handle background listeners? 
-## content.js for handling / or for injecting UI element on the chrome page 
-## popup.html: incase I want to add a popup for UI -> for start or stop 
-## popup.js: interactive behaviour for popup 
-## style.css -> to style the injected elements or popup 
+A Chrome extension that adds voice dictation to Gmail using Whisper AI for speech recognition.
 
-### what does this app do? 
-### runs a flask server, where we host a model to understand speech, convert to text, and then have that transcription pased in a Gmail Composer/Email. 
+## Quick Start
 
-## pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git
+### Setup Server
+1. Install requirements
+```bash
+pip install -r requirements.txt
+pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git
+```
+
+2. Run the server
+```bash
+python server.py
+```
+
+### Install Extension
+1. Go to `chrome://extensions/`
+2. Enable "Developer mode"
+3. Click "Load unpacked" and select this folder
+
+## How to Use
+1. Make sure the server is running
+2. Open Gmail
+3. Click the "Dictate" button in the compose toolbar
+4. Start speaking
+5. Click "Stop" when finished
+
+## Tech Stack
+- Frontend: Chrome Extension (JavaScript)
+- Backend: Flask server
+- AI: Whisper (speech recognition) + DeepPunct (punctuation)
+
+## Troubleshooting
+If dictation doesn't work, check that the server is running at http://127.0.0.1:5001
