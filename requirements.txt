@@ -1,0 +1,7 @@
+numpy
+pandas
+flask
+flask_cors
+openai-whisper
+deepmultilingualpunctuation
+pyaudio

@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Gmail Voice Dictation",
+    "version": "1.0",
+    "description": "Voice Detection in Gmail using Whisper for speech detection",
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://mail.google.com/*",
+        "http://127.0.0.1:5001/*"
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
